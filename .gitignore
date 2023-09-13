@@ -555,4 +555,8 @@ FodyWeavers.xsd
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
 
+
+# Environment variable
+.env
+
 # End of https://www.toptal.com/developers/gitignore/api/react,aspnetcore,visualstudio,visualstudiocode
