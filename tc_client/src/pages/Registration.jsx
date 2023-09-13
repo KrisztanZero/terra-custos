@@ -1,5 +1,7 @@
 export default function Registration() {
     return (
-        <h1>Reistration page</h1>
+        <div className="container">
+            <h1>Reistration page</h1>
+        </div>
     )
 }

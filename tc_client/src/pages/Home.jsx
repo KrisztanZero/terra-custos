@@ -1,5 +1,7 @@
-export default function Home(){
-    return(
-        <h1>HomePage</h1>
+export default function Home() {
+    return (
+        <div className="container">
+            <h1>HomePage</h1>
+        </div>
     )
 }
