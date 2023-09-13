@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import homeIcon from '../media/home.png';
+import homeIcon from '../media/profile.png';
 import './AppNavbar.css';
 
 export default function AppNavbar() {
@@ -21,7 +21,7 @@ export default function AppNavbar() {
                             />}
                             id="basic-nav-dropdown"
                         >
-                            <NavDropdown.Item as={Link} to="/registration">Registration</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/registration" >Registration</NavDropdown.Item>
                             <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
