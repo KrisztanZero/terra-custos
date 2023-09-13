@@ -6,7 +6,7 @@ import './AppNavbar.css';
 
 export default function AppNavbar() {
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="success" variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand as={Link} to="/">Terra Custos</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarNav" />
