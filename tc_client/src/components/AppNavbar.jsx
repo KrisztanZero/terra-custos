@@ -1,30 +1,27 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import homeIcon from '../media/profile.png';
+import { Navbar, Nav, Container } from 'react-bootstrap';
 import './AppNavbar.css';
+import ConditionalNavLinks from "./ConditionalNavLinks";
 
-export default function AppNavbar() {
+export default function AppNavbar({ user, setUser }) {
     return (
         <Navbar bg="success" variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand as={Link} to="/">Terra Custos</Navbar.Brand>
+                <Nav className="mr-auto">
+                    {
+                        user &&
+                        <Nav.Link as={Link} to={`/user/${user.username}`} >
+                            Welcome {user.username}
+                        </Nav.Link>
+                    }
+                </Nav>
                 <Navbar.Toggle aria-controls="navbarNav" />
                 <Navbar.Collapse id="navbarNav">
-                    <Nav className="ms-auto">
-                        <NavDropdown
-                            title={<img src={homeIcon}
-                                alt="profile home icon"
-                                width="30"
-                                height="30"
-                                className="d-inline-block align-top"
-                            />}
-                            id="basic-nav-dropdown"
-                        >
-                            <NavDropdown.Item as={Link} to="/registration" >Registration</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/login">Login</NavDropdown.Item>
-                        </NavDropdown>
-                    </Nav>
+                            <Nav className="ms-auto">
+                                <ConditionalNavLinks user={user} setUser={setUser} />
+                            </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
