@@ -17,11 +17,11 @@ export default function Tours() {
 
     return (
         <Container >
-            <Carousel className="w-50 mx-auto mt-5 mb-4" fade>
+            <Carousel className="w-50 mx-auto mt-5 mb-5" fade>
                 {tours.map((tour) => (
-                    <Carousel.Item key={tour.id} className="h-100" >
+                    <Carousel.Item key={tour.id} >
                         <img
-                            className="d-block w-100 rounded-5"
+                            className="img-fluid rounded-5 "
                             src={tour.imageURL}
                             alt={tour.name}
                             onClick={() => handleShow(tour)}
