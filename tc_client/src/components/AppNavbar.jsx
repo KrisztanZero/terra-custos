@@ -3,17 +3,18 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './AppNavbar.css';
 import ProfileOffcanvas from "./ProfileOffcanvas";
+import WelcomeMessage from "./WelcomeMessage";
 
 export default function AppNavbar({ user, setUser }) {
     return (
         <Navbar bg="success" variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand as={Link} to="/">Terra Custos</Navbar.Brand>
-                <Nav className="mr-auto">
+                <Nav className="mr-auto" >
                     {
                         user &&
                         <Nav.Link as={Link} to={`/user/${user.username}`} >
-                            Welcome {user.username}
+                            <WelcomeMessage username={user.username}/>
                         </Nav.Link>
                     }
                 </Nav>

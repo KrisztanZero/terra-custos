@@ -2,6 +2,7 @@
     width: 2vw;
     height: auto;
 }
+
 .dropdown-menu {
     background-color: transparent !important;
     border: none !important;
@@ -9,4 +10,10 @@
 
 .dropdown-item {
     color: green !important;
+}
+
+.welcome-message {
+    text-align: center;
+    font-weight: 400;
+    color: aqua;
 }
