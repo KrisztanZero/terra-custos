@@ -1,26 +1,30 @@
 export const users = [
     {
       id: 1,
-      username: "user1",
-      password: "password1",
-      email: "user1@example.com"
+      username: "Bob Bulldog",
+      password: "BobBulldog01",
+      email: "bob@bulldog.com",
+      description: "Loyal, yet wild as a rabbit."
     },
     {
       id: 2,
-      username: "user2",
-      password: "password2",
-      email: "user2@example.com"
+      username: "Daisy Flower",
+      password: "DaisyFlower01",
+      email: "daisy@flower.com",
+      description: "As charming as a crack in a church."
     },
     {
       id: 3,
-      username: "user3",
-      password: "password3",
-      email: "user3@example.com"
+      username: "Chris Cross",
+      password: "ChrisCross01",
+      email: "chris@cross.com",
+      description: "Strong, brave, destroys all plaques."
     },
     {
       id: 4,
-      username: "user4",
-      password: "password4",
-      email: "user4@example.com"
+      username: "The Last Of Us",
+      password: "Endgame01",
+      email: "thelast@ofus.com",
+      description: "He goes to the well until the water is introduced."
     }
   ];
