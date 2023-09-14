@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './AppNavbar.css';
-import ConditionalNavLinks from "./ConditionalNavLinks";
+import ProfileOffcanvas from "./ProfileOffcanvas";
 
 export default function AppNavbar({ user, setUser }) {
     return (
@@ -20,7 +20,7 @@ export default function AppNavbar({ user, setUser }) {
                 <Navbar.Toggle aria-controls="navbarNav" />
                 <Navbar.Collapse id="navbarNav">
                             <Nav className="ms-auto">
-                                <ConditionalNavLinks user={user} setUser={setUser} />
+                                <ProfileOffcanvas user={user} setUser={setUser} />
                             </Nav>
                 </Navbar.Collapse>
             </Container>
