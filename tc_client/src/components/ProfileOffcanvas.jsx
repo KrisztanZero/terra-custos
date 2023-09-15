@@ -29,7 +29,7 @@ export default function ProfileOffcanvas({ user, setUser }) {
                 className="bg-success"
                 style={{ width: '10%' }}
             >
-                <Offcanvas.Header closeButton>
+                <Offcanvas.Header>
                     <div className="d-flex align-items-center">
                         <img
                             src={profileIcon}
