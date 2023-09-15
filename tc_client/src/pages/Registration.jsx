@@ -40,11 +40,10 @@ export default function Registration() {
     };
 
     return (
-        <Container>
-            <h2>Register</h2>
+        <Container className=' w-50 mt-5'>
             <Form onSubmit={handleRegister}>
                 <Form.Group controlId="formBasicUsername">
-                    <Form.Label>Username:</Form.Label>
+                    <Form.Label>Username</Form.Label>
                     <Form.Control
                         type="text"
                         value={username}
@@ -53,7 +52,7 @@ export default function Registration() {
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Password:</Form.Label>
+                    <Form.Label>Password</Form.Label>
                     <Form.Control
                         type="password"
                         value={password}
@@ -62,7 +61,7 @@ export default function Registration() {
                     />
                 </Form.Group>
                 <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email:</Form.Label>
+                    <Form.Label>Email</Form.Label>
                     <Form.Control
                         type="email"
                         value={email}
@@ -72,7 +71,7 @@ export default function Registration() {
                 </Form.Group>
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Button type="submit" variant="primary" className="mt-3">
-                    Register
+                    Sign Up
                 </Button>
             </Form>
         </Container>
