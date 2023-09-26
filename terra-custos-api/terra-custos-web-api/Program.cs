@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using terra_custos_web_api.DbContexts;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,6 +24,15 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<TerraCustosContext>();
+    var dbInitializer = new DbInitializer(context);
+
+    dbInitializer.Initializer();
+}
 
 app.UseCors("AllowSpecificOrigin");
 
