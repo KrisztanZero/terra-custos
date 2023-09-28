@@ -30,7 +30,7 @@ namespace terra_custos_web_api.Services
             try
             {
                 var addr = new System.Net.Mail.MailAddress(email);
-                return addr == email;
+                return addr.Address == email;
             }
             catch
             {
