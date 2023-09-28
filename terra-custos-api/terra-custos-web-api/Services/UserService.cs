@@ -1,17 +1,15 @@
-﻿using terra_custos_web_api.Models;
-using terra_custos_web_api.Repositories;
+﻿using terra_custos_web_api.IRepositories;
+using terra_custos_web_api.Models;
 
 namespace terra_custos_web_api.Services
 {
     public class UserService : IUserService
     {
         private readonly IRepository<User> _userRepository;
-        private readonly UserValidator _userValidator;
 
-        public UserService(IRepository<User> userRepository, UserValidator userValidator)
+        public UserService(IRepository<User> userRepository)
         {
             _userRepository = userRepository;
-            _userValidator = userValidator;
         }
 
         public async Task<IEnumerable<User>> GetAllAsync()
@@ -31,7 +29,7 @@ namespace terra_custos_web_api.Services
 
         public async Task<User> UpdateAsync(int id, User entity)
         {
-            if(!_userValidator.IsValidUser(entity)) 
+            if(entity == null) 
             {
                 throw new InvalidDataException("Invalid user data.");
             }
