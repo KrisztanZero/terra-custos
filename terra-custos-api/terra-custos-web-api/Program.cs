@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<TerraCustosContext>(options=>
 options.UseSqlServer(builder.Configuration.GetConnectionString("TerraCustos")));
 
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -24,15 +23,6 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
-
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<TerraCustosContext>();
-    var dbInitializer = new DbInitializer(context);
-
-    dbInitializer.Initializer();
-}
 
 app.UseCors("AllowSpecificOrigin");
 
