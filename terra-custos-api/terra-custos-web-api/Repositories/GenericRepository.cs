@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using terra_custos_web_api.DbContexts;
+using terra_custos_web_api.IRepositories;
 
 namespace terra_custos_web_api.Repositories
 {
