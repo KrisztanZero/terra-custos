@@ -17,12 +17,12 @@ namespace terra_custos_web_api.Services
 
         public async Task<UserRole> GetRoleByName(string roleName)
         {
-            var role = await _context.Set<UserRole>().FirstOrDefaultAsync(role => role.Name == roleName);
-            if (role == null)
+            var userRole = await _context.Set<UserRole>().FirstOrDefaultAsync(role => role.Name == roleName);
+            if (userRole == null)
             {
                 throw new Exception($"Role with the name: {roleName} does not found.");
             }
-            return role;
+            return userRole;
         }
     }
 }
