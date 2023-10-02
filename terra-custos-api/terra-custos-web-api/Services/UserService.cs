@@ -5,9 +5,9 @@ namespace terra_custos_web_api.Services
 {
     public class UserService : IUserService
     {
-        private readonly IRepository<User> _userRepository;
+        private readonly IGenericRepository<User> _userRepository;
 
-        public UserService(IRepository<User> userRepository)
+        public UserService(IGenericRepository<User> userRepository)
         {
             _userRepository = userRepository;
         }

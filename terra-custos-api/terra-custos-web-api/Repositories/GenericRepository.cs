@@ -4,7 +4,7 @@ using terra_custos_web_api.IRepositories;
 
 namespace terra_custos_web_api.Repositories
 {
-    public class GenericRepository<T> : IRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         private readonly TerraCustosContext _context;
 

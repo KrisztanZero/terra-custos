@@ -1,6 +1,6 @@
 ﻿namespace terra_custos_web_api.IRepositories
 {
-    public interface IRepository<T>
+    public interface IGenericRepository<T>
     {
         Task<IEnumerable<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);
