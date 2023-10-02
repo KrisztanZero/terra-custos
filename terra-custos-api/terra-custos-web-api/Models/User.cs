@@ -1,13 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace terra_custos_web_api.Models
 {
-    public class User
+    public class User : IdentityUser
     {
-        [Key]
-        public int UserId { get; set; }
-        [Required]
-        public string Name { get; set; }
-        public IEnumerable<Tour> Tours { get; set; }
+        public string NickName { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public DateTime? LastLogin { get; set; }
+        public List<Tour> Tours { get; set; }
     }
 }
