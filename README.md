@@ -20,12 +20,10 @@
 
 ## Technologies
 
-- **Frontend:** React.js, CSS
-- **Backend:** ASP.NET Web API (C#), database (SQL Server)
-- **Authentication and User Management:** JWT (JSON Web Tokens)
-- **Data Handling:** Entity Framework
-- **Map and Location Data:** Mapping API (Google Maps)
-- **Version Control:** Git (GitHub)
+- **React.js**
+- **CSS**
+- **Bootstrap**
+- **JSON Web Tokens**
 
 ## Administraion
 
