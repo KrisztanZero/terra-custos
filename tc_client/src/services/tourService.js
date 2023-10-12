@@ -1,40 +1,28 @@
-import { tours } from '../data/tours';
-import { generateUniqueId } from '../utils/idCreator';
-
-export function getAllTours() {
-  try {
-    return [...tours];
-  } catch (error) {
-    console.error('Error fetching all tours:', error);
-    throw error;
-  }
-}
-
-export function getTourById(id) {
-  try {
-    return tours.find((tour) => tour.id === id);
-  } catch (error) {
-    console.error('Error fetching tour by ID:', error);
-    throw error;
-  }
-}
-
-export function getTourByName(name) {
-  try {
-    return tours.find((tour) => tour.name === name);
-  } catch (error) {
-    console.error('Error fetching tour by name:', error);
-    throw error;
-  }
-}
-
-export function addTour(tour) {
-  try {
-    const newTour = { ...tour, id: generateUniqueId(tours) };
-    tours.push(newTour);
-    return newTour;
-  } catch (error) {
-    console.error('Error adding tour:', error);
-    throw error;
-  }
+export const getAllTours = ()=>{
+   return [
+        {
+          id: 1,
+          name: "Montain Tour",
+          description: "Conquer the mountain!",
+          imageURL: "/media/tours/montain-tour/mountain-tour.jpg"
+        },
+        {
+          id: 2,
+          name: "Family Tour",
+          description: "Share your experiences with your family!",
+          imageURL: "/media/tours/family-tour/family-tour.jpg"
+        },
+        {
+          id: 3,
+          name: "Lake Tour",
+          description: "Row the waters of freedom!",
+          imageURL: "/media/tours/lake-tour/lake-tour.jpg"
+        },
+        {
+          id: 4,
+          name: "Tent Tour",
+          description: "Home everywhere!",
+          imageURL: "/media/tours/tent-tour/tent-tour.jpg"
+        }
+      ];
 }

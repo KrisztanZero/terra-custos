@@ -1,49 +1,15 @@
-import { users } from '../data/users';
-import { generateUniqueId } from '../utils/idCreator';
+import Cookies from "universal-cookie";
 
-export function getAllUsers() {
-    try {
-        return [...users];
-    } catch (error) {
-        console.error('Error fetching all users:', error);
-        throw error;
-    }
-}
 
-export function getUserByUsername(username) {
-    try {
-        return users.find((user) => user.username === username);
-    } catch (error) {
-        console.error('Error fetching user by username:', error);
-        throw error;
+export async function getUserBySessionToken() {
+    const cookies = new Cookies();
+    const sessionToken = cookies.get("sessionToken");
+    if (!sessionToken) {
+        return null;
     }
-}
-
-export function getUserById(id) {
-    try {
-        return users.find((user) => user.id === id);
-    } catch (error) {
-        console.error('Error fetching user by username:', error);
-        throw error;
+    const response = await fetch(`http://localhost:7021/api/user/getBySession/${sessionToken}`);
+    if (!response.ok) {
+        throw new Error('Failed to get user by sessionToken');
     }
-}
-
-export function getUserByEmail(email) {
-    try {
-        return users.find((user) => user.email === email);
-    } catch (error) {
-        console.error('Error fetching user by email:', error);
-        throw error;
-    }
-}
-
-export function addUser(user) {
-    try {
-        const newUser = { ...user, id: generateUniqueId(users) };
-        users.push(newUser);
-        return newUser;
-    } catch (error) {
-        console.error('Error adding user:', error);
-        throw error;
-    }
+    return await response.json();
 }
