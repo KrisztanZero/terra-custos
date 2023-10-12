@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App fontstyle-lato">
+    <div className="App fontstyle-lato text-white custom-text-shadow">
       <AppNavbar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
