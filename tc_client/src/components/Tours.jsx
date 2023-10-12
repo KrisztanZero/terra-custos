@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button, Container, Carousel, Card } from 'react-bootstrap';
 import { getAllTours } from '../services/tourService';
+import '../customStyles/text-shadow.css';
 
 export default function Tours() {
     const [showModal, setShowModal] = useState(false);
@@ -16,12 +17,12 @@ export default function Tours() {
     };
 
     return (
-        <Container >
-            <Carousel className="w-50 mx-auto mt-5 mb-5" fade>
+        <Container className='w-50 mx-auto mt-5 mb-5 text-white custom-text-shadow' >
+            <Carousel className=" mx-auto mt-5 mb-5" fade>
                 {tours.map((tour) => (
                     <Carousel.Item key={tour.id} >
                         <img
-                            className="img-fluid rounded-5 "
+                            className="img-fluid rounded "
                             src={tour.imageURL}
                             alt={tour.name}
                             onClick={() => handleShow(tour)}
@@ -38,14 +39,18 @@ export default function Tours() {
             </Carousel>
 
             {selectedTour && (
-                <Modal show={showModal} onHide={handleClose} className=' text-center mx-auto mt-5 mb-4'>
+                <Modal
+                    show={showModal}
+                    onHide={handleClose}
+                    className=' text-center mx-auto mt-5 mb-4 bg-transparent'
+                >
                     <Modal.Header >
-                        <Modal.Title className='m-auto text-success '>{selectedTour.name}</Modal.Title>
+                        <Modal.Title className='m-auto text-success'>{selectedTour.name}</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body className='bg-success'>
-                        <Card>
+                    <Modal.Body className='bg-transparent'>
+                        <Card className='bg-transparent'>
                             <Card.Img variant="top" src={selectedTour.imageURL} alt={selectedTour.name} />
-                            <Card.Body>
+                            <Card.Body className='bg-transparent'>
                                 <Card.Text>{selectedTour.description}</Card.Text>
                             </Card.Body>
                         </Card>

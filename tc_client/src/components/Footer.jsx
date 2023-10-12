@@ -4,7 +4,7 @@ import './Footer.css'
 
 export default function Footer() {
     return (
-        <div className=" footer bg-success">
+        <div className="footer bg-transparent">
             <Container >
                 <Row>
                     <Col>
