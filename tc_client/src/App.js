@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -7,17 +7,33 @@ import AppNavbar from "./components/AppNavbar";
 import './App.css';
 import User from "./components/User";
 import Footer from "./components/Footer";
+import { getUserBySessionToken } from "./services/userService";
+import './customStyles/lato-font.css'
 
 function App() {
   const [user, setUser] = useState(null);
+
+  useEffect(()=>{
+    const fetchUser = async () => {
+      try {
+        const data = await getUserBySessionToken();
+        setUser(data);
+      } catch (error) {
+        console.error('Login error:', error);
+      }
+    };
+  
+    fetchUser();
+  },[])
+
   return (
-    <div className="App">
+    <div className="App fontstyle-lato">
       <AppNavbar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/user/:username" element={<User />} />
+        <Route path="/user" element={<User user ={user} />} />
       </Routes>
       <Footer />
     </div>

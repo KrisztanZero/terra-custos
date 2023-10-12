@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { getUserByUsername, getUserByEmail } from '../services/userService';
-import { Container, Form, Button, Alert } from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom';
+import { Alert, Button, Container, Form } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { login } from '../services/authService';
+import { validateEmail } from '../utils/validateEmail';
+import Cookies from 'universal-cookie';
 
-export default function Login({setUser}) {
-    const [usernameOrEmail, setUsernameOrEmail] = useState('');
+
+export default function Login({ setUser }) {
+    const [credential, setCredential] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -12,24 +15,33 @@ export default function Login({setUser}) {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        let user = getUserByUsername(usernameOrEmail);
-        if(!user){
-            user = getUserByEmail(usernameOrEmail);
+        try {
+            let email = '';
+            let username = '';
+        if (validateEmail(credential)) {
+            email = credential;
+        } else {
+            username = credential;
         }
 
-        if (!user) {
-            setError('User not found');
-            return;
+        const loginData = {
+            "username": username,
+            "password": password,
+            "email": email
+        };
+
+            const loginResponse = await login(loginData);
+
+            console.log('Login successful:', loginResponse);
+            const cookies = new Cookies();
+            cookies.set('sessionToken', loginResponse.sessionToken, { path: '/' });
+            setUser(loginResponse.user);
+            navigate('/');
+        } catch (error) {
+            setError('An error occurred. Please try again.');
+            console.error('Login error:', error);
         }
 
-        if (user.password !== password) {
-            setError('Incorrect password');
-            return;
-        }
-
-        console.log('Login successful:', user);
-        setUser(user);
-        navigate('/');
     };
 
     return (
@@ -39,8 +51,8 @@ export default function Login({setUser}) {
                     <Form.Label>Username or email</Form.Label>
                     <Form.Control
                         type="text"
-                        value={usernameOrEmail}
-                        onChange={(e) => setUsernameOrEmail(e.target.value)}
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
                         required
                     />
                 </Form.Group>

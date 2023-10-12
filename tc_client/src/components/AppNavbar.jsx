@@ -7,13 +7,13 @@ import WelcomeMessage from "./WelcomeMessage";
 
 export default function AppNavbar({ user, setUser }) {
     return (
-        <Navbar bg="success" variant="dark" expand="lg">
+        <Navbar bg="transparent" variant="dark" expand="lg">
             <Container>
                 <Navbar.Brand as={Link} to="/">Terra Custos</Navbar.Brand>
                 <Nav className="mr-auto" >
                     {
                         user &&
-                        <Nav.Link as={Link} to={`/user/${user.username}`} >
+                        <Nav.Link as={Link} to={`/user`} >
                             <WelcomeMessage username={user.username}/>
                         </Nav.Link>
                     }

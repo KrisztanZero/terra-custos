@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
-import { addUser, getUserByUsername, getUserByEmail } from '../services/userService';
 import { useNavigate } from 'react-router-dom';
+import { register } from '../services/authService';
 
 export default function Registration() {
     const [username, setUsername] = useState('');
@@ -14,29 +14,27 @@ export default function Registration() {
     const handleRegister = async (e) => {
         e.preventDefault();
 
-        const existingUserByUsername = getUserByUsername(username);
-        const existingUserByEmail = getUserByEmail(email);
+        try {
+            const newUser = {
+                "username": username,
+                "password": password,
+                "email": email,
+            };
 
-        if (existingUserByUsername) {
-            setError('Username already exists');
-            return;
+            const addedUser = await register(newUser);
+
+            console.log('Registration successful:', addedUser);
+            navigte('/login');
+        } catch (error) {
+            console.log('Registration error', error);
+
+            setError('Registration error', error);
         }
 
-        if (existingUserByEmail) {
-            setError('Email already exists');
-            return;
-        }
 
-        const newUser = {
-            username,
-            password,
-            email,
-        };
 
-        const addedUser = addUser(newUser);
 
-        console.log('Registration successful:', addedUser);
-        navigte('/login');
+
     };
 
     return (
