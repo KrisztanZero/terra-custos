@@ -1,6 +1,6 @@
 # <p align="center">`TerraCustos`</br></br>Nature Conservation and Sustainability Tour App</p>
 
-### <p align="center">_Welcome to the TerraCustos project's GitHub page!_</p>
+### <p align="center"><em>Welcome to the TerraCustos project's GitHub page!</em></p>
 </br>
 <p align="center">TerraCustos is a passionately developed application that connects people's collective efforts in nature conservation and sustainability.</br>
   The app aims to inspire and encourage people to protect and care for our Earth, while enabling them to actively participate in preserving the environment,
@@ -15,17 +15,15 @@
 ### <p align="center">Publish posts, articles, and guides on sustainability.</p>
 ### <p align="center">Take on challenges and projects for environmental protection and sustainability.</p>
 </br>
-<p align="center">Thank you for your interest in TerraCustos! Join us and be a part of an inspiring community that collaborates for the preservation of nature and sustainability.</p>
+<p align="center"><em>Thank you for your interest in TerraCustos! Join us and be a part of an inspiring community that collaborates for the preservation of nature and sustainability.</em></p>
 </br></br>
 
 ## Technologies
 
-- **Frontend:** React.js, CSS
-- **Backend:** ASP.NET Web API (C#), database (SQL Server)
-- **Authentication and User Management:** JWT (JSON Web Tokens)
-- **Data Handling:** Entity Framework
-- **Map and Location Data:** Mapping API (Google Maps)
-- **Version Control:** Git (GitHub)
+- **React.js**
+- **CSS**
+- **Bootstrap**
+- **JSON Web Tokens**
 
 ## Administraion
 
@@ -45,4 +43,4 @@ For administrative tasks and managing the TerraCustos application, refer to the 
 
 - [Contributing Guidelines](/CONTRIBUTING.md): If you'd like to contribute to the project, please read our contributing guidelines.
 
-Thank you for choosing TerraCustos as your eco-friendly hiking companion! Feel free to reach out with any questions or feedback.
+<em>Thank you for choosing TerraCustos as your eco-friendly hiking companion! Feel free to reach out with any questions or feedback.</em>
