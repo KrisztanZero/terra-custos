@@ -1,19 +1,19 @@
-import { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import Registration from "./pages/Registration";
-import AppNavbar from "./components/AppNavbar";
+import { useState, useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Registration from './pages/Registration';
+import AppNavbar from './components/AppNavbar';
 import './App.css';
-import User from "./components/User";
-import Footer from "./components/Footer";
-import { getUserBySessionToken } from "./services/userService";
-import './customStyles/lato-font.css'
+import User from './components/User';
+import Footer from './components/Footer';
+import { getUserBySessionToken } from './services/userService';
+import './customStyles/lato-font.css';
 
 function App() {
   const [user, setUser] = useState(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchUser = async () => {
       try {
         const data = await getUserBySessionToken();
@@ -22,9 +22,9 @@ function App() {
         console.error('Login error:', error);
       }
     };
-  
+
     fetchUser();
-  },[])
+  }, []);
 
   return (
     <div className="App fontstyle-lato">
@@ -33,7 +33,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/user" element={<User user ={user} />} />
+        <Route path="/user" element={<User user={user} />} />
       </Routes>
       <Footer />
     </div>

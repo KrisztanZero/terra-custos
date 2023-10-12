@@ -3,8 +3,8 @@
   background-color: #f5e9d8;
   background-image: url('./media/map4k.jpg');
   background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
   height: 100vh;
   overflow: hidden;
 }

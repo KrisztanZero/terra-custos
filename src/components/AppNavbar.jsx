@@ -35,7 +35,3 @@ export default function AppNavbar({ user, setUser }) {
     </Navbar>
   );
 }
-ainer>
-        </Navbar>
-    )
-}
