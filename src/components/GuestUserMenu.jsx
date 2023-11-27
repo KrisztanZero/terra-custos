@@ -4,11 +4,11 @@ import { Nav } from 'react-bootstrap';
 export default function GuestUserMenu({ handleClose }) {
   return (
     <>
-      <Nav.Link as={Link} to="/registration" onClick={handleClose}>
-        Sign Up
+      <Nav.Link  id="registration" as={Link} to="/registration" onClick={handleClose}>
+        Registration
       </Nav.Link>
-      <Nav.Link as={Link} to="/login" onClick={handleClose}>
-        Sign In
+      <Nav.Link id="login" as={Link} to="/login" onClick={handleClose}>
+        Login
       </Nav.Link>
     </>
   );

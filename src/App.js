@@ -3,10 +3,10 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
-import AppNavbar from './components/AppNavbar';
+import AppNavbar from './components/navbar/AppNavbar';
 import './App.css';
 import User from './components/User';
-import Footer from './components/Footer';
+import Footer from './components/footer/Footer';
 import { getUserBySessionToken } from './services/userService';
 import './customStyles/lato-font.css';
 

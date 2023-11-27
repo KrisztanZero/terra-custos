@@ -44,19 +44,21 @@ export default function Login({ setUser }) {
 
   return (
     <Container className="w-50 mt-5">
-      <Form onSubmit={handleLogin}>
-        <Form.Group controlId="formBasicUsernameOrEmail">
+      <Form id="login-form" onSubmit={handleLogin}>
+        <Form.Group controlId="login-username-or-email-form-group">
           <Form.Label>Username or email</Form.Label>
           <Form.Control
+            id="login-username-or-email"
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
           />
         </Form.Group>
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group controlId="login-assword-form-group">
           <Form.Label>Password</Form.Label>
           <Form.Control
+            id="login-password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -64,8 +66,8 @@ export default function Login({ setUser }) {
           />
         </Form.Group>
         {error && <Alert variant="danger">{error}</Alert>}
-        <Button type="submit" variant="primary" className="mt-3">
-          Sign In
+        <Button id="login-submit-button" type="submit" variant="primary" className="mt-3">
+          Login
         </Button>
       </Form>
     </Container>

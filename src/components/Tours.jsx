@@ -62,7 +62,7 @@ export default function Tours() {
             </Card>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
+            <Button id="tour-modal-close-button" variant="secondary" onClick={handleClose}>
               Close
             </Button>
           </Modal.Footer>

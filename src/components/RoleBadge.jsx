@@ -18,7 +18,7 @@ export default function RoleBadge() {
   return (
     <>
       {highestRole && (
-        <div className="text-white custom-text-shadow">{highestRole}</div>
+        <div id="user-role" className="text-white custom-text-shadow">Status: {highestRole}</div>
       )}
     </>
   );

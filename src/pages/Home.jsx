@@ -19,10 +19,10 @@ export default function Home() {
   }, []);
   return (
     <div className="container">
-      <h1 className="container mt-5 text-white custom-text-shadow">
+      <h1 id="welcom-message" className="container mt-5 text-white custom-text-shadow">
         {greeting}
       </h1>
-      <h5 className="container mt-5 text-white custom-text-shadow">
+      <h5 id="site-introduction" className="container mt-5 text-white custom-text-shadow">
         TerraCustos is a passionately developed application that connects
         people's collective efforts in nature conservation and sustainability.
         The app aims to inspire and encourage people to protect and care for our

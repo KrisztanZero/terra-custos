@@ -34,28 +34,32 @@ export default function Registration() {
 
   return (
     <Container className=" w-50 mt-5">
-      <Form onSubmit={handleRegister}>
-        <Form.Group controlId="formBasicUsername">
+      <Form id="registration-form" onSubmit={handleRegister}>
+        <Form.Group controlId="registration-username-form-group">
           <Form.Label>Username</Form.Label>
           <Form.Control
+
+            id="registration-username"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
         </Form.Group>
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group controlId="registration-password-form-group">
           <Form.Label>Password</Form.Label>
           <Form.Control
+            id="registration-password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </Form.Group>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group controlId="registration-email-form-group">
           <Form.Label>Email</Form.Label>
           <Form.Control
+            id="registration-email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -63,8 +67,8 @@ export default function Registration() {
           />
         </Form.Group>
         {error && <Alert variant="danger">{error}</Alert>}
-        <Button type="submit" variant="primary" className="mt-3">
-          Sign Up
+        <Button id="create-account" type="submit" variant="primary" className="mt-3">
+          Create Account
         </Button>
       </Form>
     </Container>

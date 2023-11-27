@@ -15,11 +15,13 @@ export default function ProfileOffcanvas({ user, setUser }) {
   return (
     <>
       <Button
+        id="profile-menu-button"
         variant="link"
         onClick={handleShow}
         className="custom-text-shadow"
       >
         <img
+          id="profile-icon"
           src={profileIcon}
           alt="profile home icon"
           width="30"
