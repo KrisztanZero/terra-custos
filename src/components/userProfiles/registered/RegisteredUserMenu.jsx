@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
-import LogoutButton from './buttons/LogoutButton';
-import { getUserRoles } from '../services/roleService';
+import LogoutButton from '../../buttons/LogoutButton';
+import { getUserRoles } from '../../../services/roleService';
 import { useState, useEffect } from 'react';
 
 export default function RegisteredUserMenu({ handleClose, setUser }) {
@@ -11,7 +11,12 @@ export default function RegisteredUserMenu({ handleClose, setUser }) {
   }, []);
   return (
     <>
-      <Nav.Link id="link-to-profile" as={Link} to={`/user`} onClick={handleClose}>
+      <Nav.Link
+        id="link-to-profile"
+        as={Link}
+        to={`/user`}
+        onClick={handleClose}
+      >
         Profile
       </Nav.Link>
       <Nav.Link id="link-to-user-tours" as={Link} to="/" onClick={handleClose}>
