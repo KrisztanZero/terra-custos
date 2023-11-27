@@ -38,8 +38,6 @@ export default function Registration() {
         <Form.Group controlId="registration-username-form-group">
           <Form.Label>Username</Form.Label>
           <Form.Control
-
-            id="registration-username"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -49,7 +47,6 @@ export default function Registration() {
         <Form.Group controlId="registration-password-form-group">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            id="registration-password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -59,7 +56,6 @@ export default function Registration() {
         <Form.Group controlId="registration-email-form-group">
           <Form.Label>Email</Form.Label>
           <Form.Control
-            id="registration-email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

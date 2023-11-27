@@ -48,7 +48,6 @@ export default function Login({ setUser }) {
         <Form.Group controlId="login-username-or-email-form-group">
           <Form.Label>Username or email</Form.Label>
           <Form.Control
-            id="login-username-or-email"
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
@@ -58,7 +57,6 @@ export default function Login({ setUser }) {
         <Form.Group controlId="login-assword-form-group">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            id="login-password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
