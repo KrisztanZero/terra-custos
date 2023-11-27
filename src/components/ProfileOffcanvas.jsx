@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Offcanvas, Nav, Button } from 'react-bootstrap';
-import RegisteredUserMenu from './RegisteredUserMenu';
-import GuestUserMenu from './GuestUserMenu';
+import RegisteredUserMenu from './userProfiles/registered/RegisteredUserMenu';
+import GuestUserMenu from './userProfiles/guest/GuestUserMenu';
 
 import profileIcon from '../media/profile.png';
 import '../customStyles/text-shadow.css';

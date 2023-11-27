@@ -5,7 +5,7 @@ import Login from './pages/Login';
 import Registration from './pages/Registration';
 import AppNavbar from './components/navbar/AppNavbar';
 import './App.css';
-import User from './components/User';
+import User from './components/user/User';
 import Footer from './components/footer/Footer';
 import { getUserBySessionToken } from './services/userService';
 import './customStyles/lato-font.css';
