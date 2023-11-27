@@ -1,5 +1,5 @@
 export async function getGreeting() {
-  const response = await fetch('http://localhost:7021/api/Greeting');
+  const response = await fetch('http://localhost:7021/api/greeting');
   if (!response.ok) {
     throw new Error('Failed to fetch greeting');
   }
@@ -18,7 +18,7 @@ export async function getSecretMessage(sessionId) {
 
 export async function getPremiumMessage(sessionId) {
   const response = await fetch(
-    `http://localhost:7021/api/premium/${sessionId}`,
+    `http://localhost:7021/api/premium-message/${sessionId}`,
   );
   if (!response.ok) {
     throw new Error('Failed to fetch premium message');

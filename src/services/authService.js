@@ -1,5 +1,5 @@
 export async function register(user) {
-  const response = await fetch('http://localhost:7021/auth/register', {
+  const response = await fetch('http://localhost:7021/api/auth/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ export async function register(user) {
 }
 
 export async function login(user) {
-  const response = await fetch('http://localhost:7021/auth/login', {
+  const response = await fetch('http://localhost:7021/api/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

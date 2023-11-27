@@ -7,7 +7,7 @@ export async function getUserBySessionToken() {
     return null;
   }
   const response = await fetch(
-    `http://localhost:7021/api/user/getBySession/${sessionToken}`,
+    `http://localhost:7021/api/user/get-by-session/${sessionToken}`,
   );
   if (!response.ok) {
     throw new Error('Failed to get user by sessionToken');
