@@ -4,7 +4,7 @@ import LogoutButton from '../../buttons/LogoutButton';
 import { getUserRoles } from '../../../services/roleService';
 import { useState, useEffect } from 'react';
 
-export default function RegisteredUserMenu({ handleClose, setUser }) {
+export default function RegisteredUserMenu({ handleClose, user, setUser }) {
   const [userRoles, setUserRoles] = useState(null);
   useEffect(() => {
     getUserRoles().then((data) => setUserRoles(data.roles));
@@ -36,7 +36,7 @@ export default function RegisteredUserMenu({ handleClose, setUser }) {
         Settings
       </Nav.Link>
       <Nav.Link onClick={handleClose}>
-        <LogoutButton setUser={setUser} />
+        <LogoutButton setUser={setUser} user={user}/>
       </Nav.Link>
     </>
   );

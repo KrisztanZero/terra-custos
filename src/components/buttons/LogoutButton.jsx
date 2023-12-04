@@ -1,11 +1,18 @@
-import Cookies from 'universal-cookie';
+import { logout } from '../../services/authService';
+import { useNavigate } from 'react-router-dom';
 
-export default function LogoutButton({ setUser }) {
-  const handleLogout = (e) => {
+export default function LogoutButton({ user, setUser }) {
+  const navigate = useNavigate();
+
+  const handleLogout = async (e) => {
     e.preventDefault();
-    setUser(null);
-    const cookies = new Cookies();
-    cookies.remove('sessionToken');
+
+    try {
+      await logout(user, setUser);
+      navigate('/');
+    } catch (error) {
+      console.error('Logout failed:', error.message);
+    }
   };
   return (
     <span className="text-warning" onClick={handleLogout}>

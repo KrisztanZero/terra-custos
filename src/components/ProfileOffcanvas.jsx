@@ -51,7 +51,11 @@ export default function ProfileOffcanvas({ user, setUser }) {
         <Offcanvas.Body className="bg-transparent">
           <Nav className="flex-column">
             {user ? (
-              <RegisteredUserMenu setUser={setUser} handleClose={handleClose} />
+              <RegisteredUserMenu 
+              setUser={setUser}
+              handleClose={handleClose}
+              user={user} 
+              />
             ) : (
               <GuestUserMenu handleClose={handleClose} />
             )}
