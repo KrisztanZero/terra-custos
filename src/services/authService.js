@@ -67,3 +67,17 @@ export async function logout(user, setUser) {
 
   setUser(null);
 }
+
+export async function checkUsernameAndEmail(username, email) {
+  try {
+    const response = await fetch(`http://localhost:7021/api/auth/check-username-email?username=${username}&email=${email}`);
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(errorMessage || 'Failed to check username and email availability');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error during username and email availability check:', error);
+    throw error;
+  }
+}

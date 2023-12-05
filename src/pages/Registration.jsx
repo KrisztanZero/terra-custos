@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { register } from '../services/authService';
+import { register, checkUsernameAndEmail } from '../services/authService';
 
 export default function Registration() {
   const [username, setUsername] = useState('');
@@ -15,6 +15,12 @@ export default function Registration() {
     e.preventDefault();
 
     try {
+      const availabilityResponse = await checkUsernameAndEmail(username, email);
+      if (availabilityResponse !== 'Username and email are available') {
+        setError(availabilityResponse);
+        return;
+      }
+
       const newUser = {
         username: username,
         password: password,
@@ -26,9 +32,9 @@ export default function Registration() {
       console.log('Registration successful:', addedUser);
       navigte('/login');
     } catch (error) {
-      console.log('Registration error', error);
+      console.log('Registration error:\n', error);
 
-      setError('Registration error', error);
+      setError(`Registration error: ${error.message}`, error);
     }
   };
 
@@ -63,7 +69,12 @@ export default function Registration() {
           />
         </Form.Group>
         {error && <Alert variant="danger">{error}</Alert>}
-        <Button id="create-account" type="submit" variant="primary" className="mt-3">
+        <Button
+          id="create-account"
+          type="submit"
+          variant="primary"
+          className="mt-3"
+        >
           Create Account
         </Button>
       </Form>
