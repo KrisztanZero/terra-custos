@@ -75,7 +75,7 @@ export async function checkUsernameAndEmail(username, email) {
       const errorMessage = await response.text();
       throw new Error(errorMessage || 'Failed to check username and email availability');
     }
-    return await response.json();
+    return await response.text();
   } catch (error) {
     console.error('Error during username and email availability check:', error);
     throw error;
