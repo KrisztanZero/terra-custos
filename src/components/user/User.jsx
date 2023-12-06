@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Spinner, Container } from 'react-bootstrap';
-import UserCard from './UserCard';
+import UserCardContainer from '../../containers/UserCardContainer';
 import UserNotFound from './UserNotFound';
 import '../../customStyles/text-shadow.css';
 
-export default function User({ user }) {
+export default function User({ user, setUser }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -33,5 +33,5 @@ export default function User({ user }) {
     return <UserNotFound />;
   }
 
-  return <UserCard user={user} />;
+  return <UserCardContainer user={user} setUser={setUser} />;
 }

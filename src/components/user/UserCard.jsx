@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card, Container, Row, Col } from 'react-bootstrap';
+import UpdateButton from '../buttons/UpdateButton';
 import '../../customStyles/text-shadow.css';
 
-const UserCard = ({ user }) => (
+const UserCard = ({ user, handleUpdateProfileClick }) => (
   <Container>
     <Card
       id="user-card"
@@ -34,6 +35,11 @@ const UserCard = ({ user }) => (
                   <br />
                 </span>
               ))}
+          </Col>
+        </Row>
+        <Row className="mt-3">
+          <Col md={12}>
+            <UpdateButton onClick={handleUpdateProfileClick} />
           </Col>
         </Row>
       </Card.Body>
