@@ -7,8 +7,13 @@ export async function getUserRoles() {
     return null;
   }
   const response = await fetch(
-    `http://localhost:7021/api/user/get-user-roles/${sessionToken}`,
-  );
+    `http://localhost:7021/api/user/get-user-roles`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${sessionToken}`,
+        'Content-Type': 'application/json',
+      },
+    });
   if (!response.ok) {
     throw new Error('Failed to get user roles by sessionToken');
   }
