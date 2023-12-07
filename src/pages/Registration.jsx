@@ -67,7 +67,7 @@ export default function Registration() {
   return (
     <Container className=" w-50 mt-5">
       <Form id="registration-form" onSubmit={handleRegister} noValidate>
-        <Form.Group controlId="registration-username-form-group">
+        <Form.Group controlId="registration-username">
           <Form.Label>Username</Form.Label>
           <Form.Control
             type="text"
