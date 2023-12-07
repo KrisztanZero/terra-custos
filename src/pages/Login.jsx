@@ -76,7 +76,7 @@ export default function Login({ setUser }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        {error && <Alert variant="danger">{error}</Alert>}
+        {error && <Alert id="login-error-message" variant="danger">{error}</Alert>}
         <Button
           id="login-submit-button"
           type="submit"

@@ -75,7 +75,7 @@ export default function Registration() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </Form.Group>
-        <Form.Group controlId="registration-password-form-group">
+        <Form.Group controlId="registration-password">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
@@ -83,7 +83,7 @@ export default function Registration() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </Form.Group>
-        <Form.Group controlId="registration-email-form-group">
+        <Form.Group controlId="registration-email">
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
@@ -91,7 +91,7 @@ export default function Registration() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        {error && <Alert variant="danger">{error}</Alert>}
+        {error && <Alert id="registration-error-message" variant="danger">{error}</Alert>}
         <Button
           id="create-account"
           type="submit"
