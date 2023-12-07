@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { register, checkUsernameAndEmail } from '../services/authService';
+import { validateEmail } from '../utils/validateEmail';
 
 export default function Registration() {
   const [username, setUsername] = useState('');
@@ -15,6 +16,31 @@ export default function Registration() {
     e.preventDefault();
 
     try {
+      if (!username.trim() && !password.trim() && !email.trim()) {
+        setError('Please fill in all fields.');
+        return;
+      }
+
+      if (!username.trim()) {
+        setError('Please enter username');
+        return;
+      }
+
+      if (!password.trim()) {
+        setError('Please enter password');
+        return;
+      }
+
+      if (!email.trim()) {
+        setError('Please enter email');
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        setError('Please enter a valid email address');
+        return;
+      }
+
       const availabilityResponse = await checkUsernameAndEmail(username, email);
       if (availabilityResponse !== 'Username and email are available') {
         setError(availabilityResponse);
@@ -40,14 +66,13 @@ export default function Registration() {
 
   return (
     <Container className=" w-50 mt-5">
-      <Form id="registration-form" onSubmit={handleRegister}>
+      <Form id="registration-form" onSubmit={handleRegister} noValidate>
         <Form.Group controlId="registration-username-form-group">
           <Form.Label>Username</Form.Label>
           <Form.Control
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
           />
         </Form.Group>
         <Form.Group controlId="registration-password-form-group">
@@ -56,7 +81,6 @@ export default function Registration() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </Form.Group>
         <Form.Group controlId="registration-email-form-group">
@@ -65,7 +89,6 @@ export default function Registration() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
         </Form.Group>
         {error && <Alert variant="danger">{error}</Alert>}

@@ -15,6 +15,21 @@ export default function Login({ setUser }) {
     e.preventDefault();
 
     try {
+      if (!credential.trim() && !password.trim()) {
+        setError('Please fill in all fields.');
+        return;
+      }
+
+      if (!credential.trim()) {
+        setError('Please enter a username or email.');
+        return;
+      }
+
+      if (!password.trim()) {
+        setError('Please enter a password.');
+        return;
+      }
+
       let email = '';
       let username = '';
       if (validateEmail(credential)) {
@@ -51,7 +66,6 @@ export default function Login({ setUser }) {
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
-            required
           />
         </Form.Group>
         <Form.Group controlId="login-password">
@@ -60,7 +74,6 @@ export default function Login({ setUser }) {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </Form.Group>
         {error && <Alert variant="danger">{error}</Alert>}
