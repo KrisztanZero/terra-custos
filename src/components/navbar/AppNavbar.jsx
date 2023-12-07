@@ -10,7 +10,7 @@ export default function AppNavbar({ user, setUser }) {
   return (
     <Navbar bg="transparent" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand id="brand-name" as={Link} to="/">
           Terra Custos
         </Navbar.Brand>
         <Nav className="mr-auto">

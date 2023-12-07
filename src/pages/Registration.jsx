@@ -60,7 +60,7 @@ export default function Registration() {
     } catch (error) {
       console.log('Registration error:\n', error);
 
-      setError(`Registration error: ${error.message}`, error);
+      setError(error.message, error);
     }
   };
 
