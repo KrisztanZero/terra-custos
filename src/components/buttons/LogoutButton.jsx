@@ -15,7 +15,7 @@ export default function LogoutButton({ user, setUser }) {
     }
   };
   return (
-    <span className="text-warning" onClick={handleLogout}>
+    <span id="logout-button" className="text-warning" onClick={handleLogout}>
       Logout
     </span>
   );

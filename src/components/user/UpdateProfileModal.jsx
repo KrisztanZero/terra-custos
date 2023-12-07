@@ -62,7 +62,7 @@ const UpdateProfileModal = ({ user, onSave, onClose }) => {
         <Button variant="secondary" onClick={onClose}>
           Close
         </Button>
-        <Button variant="primary" onClick={handleSaveChanges}>
+        <Button id="update-profile-button" variant="primary" onClick={handleSaveChanges}>
           Save Changes
         </Button>
       </Modal.Footer>
